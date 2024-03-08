@@ -1,7 +1,7 @@
-import { IDynamicStatus, ITSKStatus } from '@/assets/typescript/ui';
+import { IDynamicStatus, IStatus } from '@/assets/typescript/ui';
 
 export const tskStatusColors: {
-  [key in ITSKStatus]: IDynamicStatus;
+  [key in IStatus]: IDynamicStatus;
 } = {
   BACKLOG: {
     BG: {
