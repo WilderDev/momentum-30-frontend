@@ -3,7 +3,7 @@ export type TVariant = 'primary' | 'secondary' | 'dark' | 'light';
 export type TFill = 'solid' | 'outline' | 'gradient' | 'none';
 export type TEffect = 'scale';
 
-type ITSKStatus = 'BACKLOG' | 'IN_PROGRESS' | 'COMPLETE';
+type IStatus = 'BACKLOG' | 'IN_PROGRESS' | 'COMPLETE';
 
 export type IconType = React.ForwardRefExoticComponent<
   Omit<React.SVGProps<SVGSVGElement>, 'ref'> & {
@@ -30,4 +30,14 @@ interface IDynamicStatus {
     STRONG: string;
     GRADIENT: string;
   };
+}
+
+export type TIcon = React.ElementType | any;
+
+export interface ILink {
+  id: number;
+  name: string;
+  slug: string;
+  icon: any;
+  external?: boolean;
 }

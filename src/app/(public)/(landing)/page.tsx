@@ -43,7 +43,7 @@ export default function LandingPage() {
               priority
             /> */}
             <div className="mt-24 sm:mt-32 lg:mt-16">
-              <a href="#" className="inline-flex space-x-6">
+              <a href="/home" className="inline-flex space-x-6">
                 <span className="rounded-full bg-cyan-600/10 px-3 py-1 text-sm font-semibold leading-6 text-cyan-600 ring-1 ring-inset ring-cyan-600/10">
                   Try it Today
                 </span>
@@ -68,14 +68,14 @@ export default function LandingPage() {
             </p>
             <div className="mt-10 flex items-center gap-x-6">
               <a
-                href="#"
+                href="/home"
                 className="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
               >
                 Start your journey
               </a>
 
               <a
-                href="#"
+                href="/home"
                 className="text-sm font-semibold leading-6 text-slate-900"
               >
                 Learn more <span aria-hidden="true">→</span>
