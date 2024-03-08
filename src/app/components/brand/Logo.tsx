@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import logoEmblem from '@/assets/icons/logo-emblem.png';
+import logoEmblem from '@/assets/icons/Momentum_Logo.png';
 
 // * Component: Logo
 export default function LogoEmblem() {

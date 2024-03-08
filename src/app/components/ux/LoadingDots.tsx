@@ -1,5 +1,5 @@
-import { TSize } from '@/app/assets/typescript/ui';
-import cn from '@/app/lib/common/classNames';
+import { TSize } from '@/assets/typescript/ui';
+import cn from '@/lib/common/classNames';
 
 // * Props
 interface IProps {

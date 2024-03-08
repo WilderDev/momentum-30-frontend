@@ -1,4 +1,4 @@
-import { IDynamicStatus, ITSKStatus } from '@/app/assets/typescript/ui';
+import { IDynamicStatus, ITSKStatus } from '@/assets/typescript/ui';
 
 export const tskStatusColors: {
   [key in ITSKStatus]: IDynamicStatus;

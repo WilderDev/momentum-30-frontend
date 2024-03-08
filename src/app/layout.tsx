@@ -1,6 +1,6 @@
 // * Imports
 // Styles
-import '@/app/assets/styles/globals.css';
+import '@/assets/styles/globals.css';
 // Next / Vercel
 import dynamic from 'next/dynamic';
 // import { Analytics } from '@vercel/analytics/react';
@@ -10,7 +10,7 @@ import cn from './lib/common/classNames';
 import { baskervville, inter } from './assets/fonts/googleFonts';
 import { defaultMetadata } from './assets/meta/defaultMetadata';
 // Dynamic
-const Toast = dynamic(() => import('@/app/components/global/Toast'), {
+const Toast = dynamic(() => import('@/components/global/Toast'), {
   ssr: false,
 });
 

@@ -1,7 +1,7 @@
 // * Helper
 function getBaseUrl() {
   if (process.env.NODE_ENV === 'production') {
-    return 'https://www.tsk.com';
+    return 'https://www.momentumthirty.com';
   } else {
     return 'http://localhost:3000';
   }

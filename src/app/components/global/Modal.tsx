@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import { TSize } from '@/app/assets/typescript/ui';
-import cn from '@/app/lib/common/classNames';
+import { TSize } from '@/assets/typescript/ui';
+import cn from '@/lib/common/classNames';
 
 // * Props
 export interface IProps {

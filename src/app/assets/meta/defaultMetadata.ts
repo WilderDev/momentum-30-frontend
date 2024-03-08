@@ -1,20 +1,21 @@
-import baseUrl from '@/app/lib/common/baseUrl';
+import baseUrl from '@/lib/common/baseUrl';
 import { Metadata } from 'next';
 
-const title = 'TSK | TSK';
-const description = 'TSK';
+const title = 'Momentum 30 | Exercise Made Easy';
+const description =
+  "Momentum 30 is a fitness app that makes exercise easy and fun. Get started today! You're only 1 pushup away from a better you.";
 const images = [
   {
     url: '/static/brand/logo-banner.png',
     alt: 'TSK logo banner',
-    width: 0,
-    height: 0,
+    width: 1024,
+    height: 1024,
   },
   {
     url: '/static/brand/og-facebook.png',
     alt: 'TSK Facebook Cover',
-    width: 0,
-    height: 0,
+    width: 1024,
+    height: 1024,
   },
 ];
 
@@ -25,9 +26,9 @@ export const defaultMetadata: Metadata = {
   },
   description,
   applicationName: title,
-  creator: 'Atlas Automations',
+  creator: 'William Wilder (Codefi Cape Evening 2024)',
   colorScheme: 'only light',
-  themeColor: '#344764', // TODO
+  themeColor: '#06b6d4',
   assets: '/static',
   metadataBase: new URL(baseUrl),
   alternates: {
@@ -68,7 +69,7 @@ export const defaultMetadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    creator: '@will_atlas', // TODO
+    creator: '@WilderDev',
     title,
     description,
     images,

@@ -1,4 +1,4 @@
-import cn from '@/app/lib/common/classNames';
+import cn from '@/lib/common/classNames';
 
 // * Props
 interface IProps {
