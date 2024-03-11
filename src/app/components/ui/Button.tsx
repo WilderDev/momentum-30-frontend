@@ -54,7 +54,7 @@ export default function Button({
   // Button Variant Styles
   const variants: { [key in TVariant]: string } = {
     primary: 'text-white',
-    secondary: 'text-blue-50',
+    secondary: 'text-orange-50',
     light: 'text-slate-700 dark:text-navy-700',
     dark: 'text-slate-100 dark:text-navy-100',
   };
@@ -63,17 +63,18 @@ export default function Button({
   const fills: { [key in TFill]: { [key in TVariant]: string } } = {
     // Solid
     solid: {
-      primary: 'bg-green-600 hover:bg-green-700 focus:ring-offset-green-50',
-      secondary: 'bg-blue-600 hover:bg-blue-700 focus:ring-offset-blue-50',
+      primary: 'bg-teal-600 hover:bg-teal-700 focus:ring-offset-teal-50',
+      secondary:
+        'bg-orange-600 hover:bg-orange-700 focus:ring-offset-orange-50',
       light: 'bg-slate-100 dark:bg-navy-100 focus:ring-offset-slate-50',
       dark: 'bg-slate-700 dark:bg-navy-700 focus:ring-offset-slate-900',
     },
     // Outline
     outline: {
       primary:
-        'border border-green-600 hocus:bg-green-50 focus:ring-offset-green-600 text-green-600 hocus:text-green-700 dark:hocus:text-green-600 hocus:bg-opacity-10 dark:hocus:bg-opacity-10',
+        'border border-teal-600 hocus:bg-teal-50 focus:ring-offset-teal-600 text-teal-600 hocus:text-teal-700 dark:hocus:text-teal-600 hocus:bg-opacity-10 dark:hocus:bg-opacity-10',
       secondary:
-        'border border-blue-600 hocus:bg-blue-50 focus:ring-offset-blue-600 text-blue-600 hocus:text-blue-70',
+        'border border-orange-600 hocus:bg-orange-50 focus:ring-offset-orange-600 text-orange-600 hocus:text-orange-70',
       light:
         'border border-slate-100 dark:border-navy-400 hocus:bg-slate-50 focus:ring-offset-slate-300 text-slate-600 dark:text-navy-200 dark:hocus:text-navy-100 hocus:text-slate-700',
       dark: 'border border-slate-700 dark:border-navy-700 hocus:bg-slate-50 dark:hocus:bg-navy-800 focus:ring-offset-slate-700 text-slate-700 dark:text-navy-200 dark:hocus:text-navy-100 hocus:text-slate-800',
@@ -81,17 +82,17 @@ export default function Button({
     // Gradient
     gradient: {
       primary:
-        'bg-gradient-to-bl from-green-500 to-green-600 via-emerald-600 focus:ring-offset-green-600 hocus:brightness-110 active:brightness-90',
+        'bg-gradient-to-bl from-teal-500 to-teal-600 via-emerald-600 focus:ring-offset-teal-600 hocus:brightness-110 active:brightness-90',
       secondary:
-        'bg-gradient-to-bl from-blue-500 to-blue-600 via-sky-60 focus:ring-offset-blue-600 hocus:brightness-110 active:brightness-90',
+        'bg-gradient-to-bl from-orange-500 to-orange-600 via-sky-60 focus:ring-offset-orange-600 hocus:brightness-110 active:brightness-90',
       light:
         'bg-gradient-to-bl from-slate-100 to-slate-200 via-slate-300 dark:from-navy-100 dark:to-navy-200 dark:via-navy-300 focus:ring-offset-slate-300 hocus:brightness-110 active:brightness-90',
       dark: 'bg-gradient-to-bl from-slate-700 to-slate-800 via-slate-900 dark:from-navy-700 dark:to-navy-800 dark:via-navy-900 focus:ring-offset-slate-900 hocus:brightness-110 active:brightness-90',
     },
     // None
     none: {
-      primary: 'text-green-600 hocus:text-green-700',
-      secondary: 'text-blue-600 hocus:text-blue-700',
+      primary: 'text-teal-600 hocus:text-teal-700',
+      secondary: 'text-orange-600 hocus:text-orange-700',
       light: 'text-slate-100 dark:text-navy-100 hocus:text-slate-200',
       dark: 'text-slate-500 dark:text-navy-300 hocus:text-slate-700 dark:hocus:text-navy-200',
     },
