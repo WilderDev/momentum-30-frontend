@@ -28,7 +28,7 @@ export default function LeftSidebarMobileLink({ link, idx, close }: IProps) {
         <link.icon className="h-7 w-7 mr-3" />
 
         {/* Name */}
-        <span className="text-sm font-medium text-slate-800 dark:text-orange-100">
+        <span className="text-sm font-medium text-slate-800 dark:text-teal-100">
           {link.name}
         </span>
       </IconLink>
