@@ -1,6 +1,7 @@
 import DashMainCol from '../(layout)/DashMainCol';
 import { DashPanel, DashPanelHeader } from '../(layout)/DashPanel';
 import DashSideCol from '../(layout)/DashSideCol';
+import ChatContainer from './ChatContainer';
 
 // * Page: ChatRoomPage
 export default function ChatRoomPage() {
@@ -9,8 +10,7 @@ export default function ChatRoomPage() {
     <>
       <DashMainCol>
         <DashPanel colNum={1}>
-          <DashPanelHeader title="Test" />
-          TSK
+          <ChatContainer />
         </DashPanel>
       </DashMainCol>
 
