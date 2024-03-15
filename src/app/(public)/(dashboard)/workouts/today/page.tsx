@@ -1,143 +1,41 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DashMainCol from '../../(layout)/DashMainCol';
 import { DashPanel, DashPanelHeader } from '../../(layout)/DashPanel';
 import DashSideCol from '../../(layout)/DashSideCol';
-import { Excercise } from '../../home/TodaysWorkoutHome';
 import CurrentExercisePanel from './CurrentExercisePanel';
 import UpcomingExercisesPanel from './UpcomingExercisesPanel';
 
 // * Page: TodaysWorkoutPage
 export default function TodaysWorkoutPage() {
-  const todaysWorkout = [
-    {
-      regular: {
-        name: 'Squats',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      easy: {
-        name: 'Easy Squats',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      hard: {
-        name: 'Hard Squats',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      reps: 10,
-    },
-    {
-      regular: {
-        name: 'Pushups',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      easy: {
-        name: 'Easy Pushups',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      hard: {
-        name: 'Hard Pushups',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      reps: 10,
-    },
-    {
-      regular: {
-        name: 'Jumping Jacks',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      easy: {
-        name: 'Easy Jumping Jacks',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      hard: {
-        name: 'Hard Jumping Jacks',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      reps: 10,
-    },
-    {
-      regular: {
-        name: 'Russian Twists',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      easy: {
-        name: 'Easy Russian Twists',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      hard: {
-        name: 'Hard Russian Twists',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      reps: 10,
-    },
-    {
-      regular: {
-        name: 'Squats',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      easy: {
-        name: 'Easy Squats',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      hard: {
-        name: 'Hard Squats',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      reps: 10,
-    },
-    {
-      regular: {
-        name: 'Pushups',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      easy: {
-        name: 'Easy Pushups',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      hard: {
-        name: 'Hard Pushups',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      reps: 10,
-    },
-    {
-      regular: {
-        name: 'Jumping Jacks',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      easy: {
-        name: 'Easy Jumping Jacks',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      hard: {
-        name: 'Hard Jumping Jacks',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      reps: 10,
-    },
-    {
-      regular: {
-        name: 'Russian Twists',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      easy: {
-        name: 'Easy Russian Twists',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      hard: {
-        name: 'Hard Russian Twists',
-        videoURL: 'https://www.youtube.com/embed/aq2xZxfrQlM',
-      },
-      reps: 10,
-    },
-  ];
-
+  // * State
   const [isComplete, setIsComplete] = useState(false);
   const [currIndex, setCurrIndex] = useState(0);
-  const [currVariant, setCurrVariant] = useState<'regular' | 'easy' | 'hard'>(
-    'regular',
-  );
+  const [currVariant, setCurrVariant] = useState<
+    'easyVariation' | 'regularVariation' | 'hardVariation'
+  >('regularVariation');
+
+  const [todaysWorkout, setTodaysWorkout] = useState<any[]>([]);
+
+  const getTodaysExercises = async () => {
+    // * Fetch todays exercises
+    try {
+      const res = await fetch(
+        'http://localhost:5000' + '/api/v1/workout/current',
+      );
+      const data = await res.json();
+
+      setTodaysWorkout(data.data.workoutList);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // * Fetch todays exercises
+  useEffect(() => {
+    getTodaysExercises();
+  }, []);
 
   // * Render
   return (
@@ -146,22 +44,24 @@ export default function TodaysWorkoutPage() {
         <DashPanel colNum={1}>
           <DashPanelHeader title="Current Exercise" />
 
-          <CurrentExercisePanel
-            currVariant={currVariant}
-            currExercise={todaysWorkout[currIndex]}
-            setVariant={(variant: 'easy' | 'regular' | 'hard') =>
-              setCurrVariant(variant)
-            }
-            nextExercise={() => {
-              const nextIndex = currIndex + 1;
+          {!isComplete && todaysWorkout.length > 0 && (
+            <CurrentExercisePanel
+              currVariant={currVariant}
+              currExercise={todaysWorkout[currIndex]}
+              setVariant={(
+                variant: 'easyVariation' | 'regularVariation' | 'hardVariation',
+              ) => setCurrVariant(variant)}
+              nextExercise={() => {
+                const nextIndex = currIndex + 1;
 
-              if (nextIndex < todaysWorkout.length) {
-                setCurrIndex(nextIndex);
-              } else {
-                setIsComplete(true);
-              }
-            }}
-          />
+                if (nextIndex < todaysWorkout.length) {
+                  setCurrIndex(nextIndex);
+                } else {
+                  setIsComplete(true);
+                }
+              }}
+            />
+          )}
         </DashPanel>
       </DashMainCol>
 
@@ -169,7 +69,11 @@ export default function TodaysWorkoutPage() {
         <DashPanel colNum={1}>
           <DashPanelHeader title="Upcoming Exercises" />
 
-          {/* <UpcomingExercisesPanel workout={todaysWorkout} /> */}
+          <UpcomingExercisesPanel
+            currExerciseNum={currIndex}
+            workout={todaysWorkout}
+            currVariant={currVariant}
+          />
         </DashPanel>
       </DashSideCol>
     </>

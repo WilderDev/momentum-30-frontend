@@ -1,151 +1,32 @@
-import Button from '@/components/ui/Button';
+'use client';
 
-export interface Excercise {
-  name: string;
-  videoURL: string;
-  easy: {
-    name: string;
-    videoURL: string;
-  };
-  hard: {
-    name: string;
-    videoURL: string;
-  };
-  reps: number;
-}
+import Button from '@/components/ui/Button';
+import { useEffect, useState } from 'react';
 
 // * Page: DashboardHomePage
 export default function TodaysWorkoutHome() {
-  const todaysWorkout: Excercise[] = [
-    {
-      name: 'Squats',
-      videoURL:
-        'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      easy: {
-        name: 'Easy Squats',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      hard: {
-        name: 'Hard Squats',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      reps: 10,
-    },
-    {
-      name: 'Pushups',
-      videoURL:
-        'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      easy: {
-        name: 'Easy Pushups',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      hard: {
-        name: 'Hard Pushups',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      reps: 10,
-    },
-    {
-      name: 'Jumping Jacks',
-      videoURL:
-        'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      easy: {
-        name: 'Easy Jumping Jacks',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      hard: {
-        name: 'Hard Jumping Jacks',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      reps: 10,
-    },
-    {
-      name: 'Russian Twists',
-      videoURL:
-        'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      easy: {
-        name: 'Easy Russian Twists',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      hard: {
-        name: 'Hard Russian Twists',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      reps: 10,
-    },
-    {
-      name: 'Squats',
-      videoURL:
-        'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      easy: {
-        name: 'Easy Squats',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      hard: {
-        name: 'Hard Squats',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      reps: 10,
-    },
-    {
-      name: 'Pushups',
-      videoURL:
-        'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      easy: {
-        name: 'Easy Pushups',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      hard: {
-        name: 'Hard Pushups',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      reps: 10,
-    },
-    {
-      name: 'Jumping Jacks',
-      videoURL:
-        'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      easy: {
-        name: 'Easy Jumping Jacks',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      hard: {
-        name: 'Hard Jumping Jacks',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      reps: 10,
-    },
-    {
-      name: 'Russian Twists',
-      videoURL:
-        'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      easy: {
-        name: 'Easy Russian Twists',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      hard: {
-        name: 'Hard Russian Twists',
-        videoURL:
-          'https://www.youtube.com/watch?v=aq2xZxfrQlM&list=PLeVb1RGNTvdeF_q2-cean9aFIvhbtV9hb&index=6&pp=iAQB',
-      },
-      reps: 10,
-    },
-  ];
+  const [todaysWorkout, setTodaysWorkout] = useState<any[]>([]);
+
+  const getTodaysExercises = async () => {
+    // * Fetch todays exercises
+    try {
+      const res = await fetch(
+        'http://localhost:5000' + '/api/v1/workout/current',
+      );
+      const data = await res.json();
+
+      console.log('data.data.workoutList:', data.data.workoutList);
+
+      setTodaysWorkout(data.data.workoutList);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // * Fetch todays exercises
+  useEffect(() => {
+    getTodaysExercises();
+  }, []);
 
   // Initialize a Set to keep track of unique exercise names
   const uniqueNames = new Set();
@@ -153,24 +34,26 @@ export default function TodaysWorkoutHome() {
   const todaysExerciseSet = todaysWorkout
     .map((exercise) => {
       return {
-        name: exercise.name,
-        videoURL: exercise.videoURL,
+        regular: {
+          name: exercise.exercise.regularVariation.name,
+          videoURL: exercise.exercise.regularVariation.videoURL,
+        },
         easy: {
-          name: exercise.easy.name,
-          videoURL: exercise.easy.videoURL,
+          name: exercise.exercise.easyVariation.name,
+          videoURL: exercise.exercise.easyVariation.videoURL,
         },
         hard: {
-          name: exercise.hard.name,
-          videoURL: exercise.hard.videoURL,
+          name: exercise.exercise.hardVariation.name,
+          videoURL: exercise.exercise.hardVariation.videoURL,
         },
       };
     })
     // Filter the array to only include the first occurrence of each exercise name
     .filter((exerciseSet) => {
-      if (uniqueNames.has(exerciseSet.name)) {
+      if (uniqueNames.has(exerciseSet.regular.name)) {
         return false; // If the name is already in the Set, exclude this item
       } else {
-        uniqueNames.add(exerciseSet.name); // Add the new name to the Set
+        uniqueNames.add(exerciseSet.regular.name); // Add the new name to the Set
         return true; // Include this item in the filtered array
       }
     });
@@ -186,58 +69,56 @@ export default function TodaysWorkoutHome() {
         </p>
       </div>
 
-      {/* Today's Exercises */}
-      <div className="flex gap-12 flex-wrap justify-between mt-4">
-        {todaysExerciseSet.map((exercise) => (
-          <div
-            key={exercise.name}
-            className="flex flex-col space-y-4 shadow-sm p-4 rounded-md bg-white w-full md:w-[47%] border border-slate-200"
-          >
-            {/* Regular */}
-            <Button
-              key={exercise.name}
-              loading={false}
-              size="md"
-              variant="primary"
-              shadow="none"
-              rounded="md"
-              url={exercise.videoURL}
+      {todaysWorkout.length > 0 && (
+        <div className="flex gap-12 flex-wrap justify-between mt-4">
+          {todaysExerciseSet.map((exercise, i) => (
+            <div
+              key={i}
+              className="flex flex-col space-y-4 shadow-sm p-4 rounded-md bg-white w-full md:w-[47%] border border-slate-200"
             >
-              {exercise.name}
-            </Button>
+              {/* Regular */}
+              <Button
+                loading={false}
+                size="md"
+                variant="primary"
+                shadow="none"
+                rounded="md"
+                url={exercise.regular.videoURL}
+              >
+                {exercise.regular.name}
+              </Button>
 
-            <Button
-              key={exercise.easy.name}
-              loading={false}
-              size="sm"
-              variant="primary"
-              fill="outline"
-              shadow="none"
-              rounded="md"
-              url={exercise.easy.videoURL}
-            >
-              Easy: {exercise.name}
-            </Button>
+              <Button
+                loading={false}
+                size="sm"
+                variant="primary"
+                fill="outline"
+                shadow="none"
+                rounded="md"
+                url={exercise.easy.videoURL}
+              >
+                Easy: {exercise.easy.name}
+              </Button>
 
-            <Button
-              key={exercise.easy.name}
-              loading={false}
-              size="sm"
-              variant="primary"
-              fill="outline"
-              shadow="none"
-              rounded="md"
-              url={exercise.easy.videoURL}
-            >
-              Hard: {exercise.name}
-            </Button>
-          </div>
-        ))}
-      </div>
+              <Button
+                loading={false}
+                size="sm"
+                variant="primary"
+                fill="outline"
+                shadow="none"
+                rounded="md"
+                url={exercise.hard.videoURL}
+              >
+                Hard: {exercise.hard.name}
+              </Button>
+            </div>
+          ))}
+        </div>
+      )}
 
       <div className="flex justify-between gap-x-12 ">
         {/* Yesterday Button */}
-        <Button
+        {/* <Button
           loading={false}
           size="sm"
           variant="dark"
@@ -249,7 +130,7 @@ export default function TodaysWorkoutHome() {
           className="w-full md:w-64 mt-8 text-center"
         >
           Do Yesterday&apos;s Workout
-        </Button>
+        </Button> */}
 
         <Button
           loading={false}

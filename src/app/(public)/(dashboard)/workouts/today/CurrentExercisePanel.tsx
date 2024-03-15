@@ -1,28 +1,29 @@
 'use client';
 
-import { useState } from 'react';
-import { Excercise } from '../../home/TodaysWorkoutHome';
 import Button from '@/components/ui/Button';
 
 interface IProps {
-  currVariant: 'easy' | 'regular' | 'hard';
-  currExercise: {
-    reps: number;
-    easy: {
-      name: string;
-      videoURL: string;
-    };
-    regular: {
-      name: string;
-      videoURL: string;
-    };
-    hard: {
-      name: string;
-      videoURL: string;
-    };
-  };
+  currVariant: 'easyVariation' | 'regularVariation' | 'hardVariation';
+  // currExercise: {
+  //   reps: number;
+  //   easyVariation: {
+  //     name: string;
+  //     videoURL: string;
+  //   };
+  //   regularVariation: {
+  //     name: string;
+  //     videoURL: string;
+  //   };
+  //   hardVariation: {
+  //     name: string;
+  //     videoURL: string;
+  //   };
+  // };
+  currExercise: any;
   nextExercise: () => void;
-  setVariant: (variant: 'easy' | 'regular' | 'hard') => void;
+  setVariant: (
+    variant: 'easyVariation' | 'regularVariation' | 'hardVariation',
+  ) => void;
 }
 
 // * Page: TodaysWorkoutPage
@@ -32,17 +33,6 @@ export default function CurrentExercisePanel({
   nextExercise,
   setVariant,
 }: IProps) {
-  console.log('currExercise:', currExercise);
-
-  //   const [currentExerciseName, setCurrentExerciseName] = useState(
-  //     currExercise.name,
-  //   );
-  //   const [currentExerciseVideoURL, setCurrentExerciseVideoURL] = useState(
-  //     currExercise.videoURL,
-  //   );
-  //   const [currentExerciseVariant, setCurrentExerciseVariant] =
-  //     useState('normal');
-
   // * Render
   return (
     <div className="flex flex-col">
@@ -51,14 +41,14 @@ export default function CurrentExercisePanel({
         <div className="w-2/3">
           {/* Name */}
           <h1 className="text-3xl font-bold underline">
-            {currExercise[currVariant].name}
+            {currExercise.exercise[currVariant].name}
           </h1>
 
           {/* Reps */}
           <h2 className="text-xl font-bold mt-2">
             Reps:
             <span className="text-green-500 inline-block ml-2">
-              {currExercise.reps}
+              {currExercise.rep}
             </span>
           </h2>
 
@@ -66,8 +56,8 @@ export default function CurrentExercisePanel({
           <iframe
             width="560"
             height="315"
-            src={currExercise[currVariant].videoURL}
-            title={currExercise[currVariant].name}
+            src={currExercise.exercise[currVariant].videoURL}
+            title={currExercise.exercise[currVariant].name}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             className="mt-4"
           ></iframe>
@@ -78,26 +68,28 @@ export default function CurrentExercisePanel({
           <h2 className="text-2xl font-bold">Variants</h2>
 
           {/* Easy Variant */}
-          {currVariant !== 'easy' && (
+          {currVariant !== 'easyVariation' && (
             <div className="flex items-center justify-between mt-2">
               <h3 className="text-xl font-bold">Easy</h3>
-              <Button onClick={() => setVariant('easy')}>View</Button>
+              <Button onClick={() => setVariant('easyVariation')}>View</Button>
             </div>
           )}
 
           {/* Normal Variant */}
-          {currVariant !== 'regular' && (
+          {currVariant !== 'regularVariation' && (
             <div className="flex items-center justify-between mt-2">
               <h3 className="text-xl font-bold">Normal</h3>
-              <Button onClick={() => setVariant('regular')}>View</Button>
+              <Button onClick={() => setVariant('regularVariation')}>
+                View
+              </Button>
             </div>
           )}
 
           {/* Hard Variant */}
-          {currVariant !== 'hard' && (
+          {currVariant !== 'hardVariation' && (
             <div className="flex items-center justify-between mt-2">
               <h3 className="text-xl font-bold">Hard</h3>
-              <Button onClick={() => setVariant('hard')}>View</Button>
+              <Button onClick={() => setVariant('hardVariation')}>View</Button>
             </div>
           )}
         </div>
@@ -108,7 +100,6 @@ export default function CurrentExercisePanel({
         variant="secondary"
         className="mt-6"
         onClick={() => {
-          setVariant('regular');
           nextExercise();
         }}
       >

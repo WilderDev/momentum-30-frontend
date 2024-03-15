@@ -1,3 +1,5 @@
+'use client';
+
 import DashMainCol from '../(layout)/DashMainCol';
 import { DashPanel, DashPanelHeader } from '../(layout)/DashPanel';
 import DashSideCol from '../(layout)/DashSideCol';
