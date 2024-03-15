@@ -41,7 +41,7 @@ export default function ChatContainer() {
       if (!data) return; // If no response body, or no choices, or no first choice, show error toast
 
       // 3. Set Chat History
-      setMessages(data);
+      setMessages(data.data);
     } catch (e) {
       return; // Display error toast
     } finally {
