@@ -3,10 +3,11 @@
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import baseUrl from '@/lib/common/baseUrl';
+
 import Form from '@/components/form/Form';
 import Button from '@/components/ui/Button';
 import Input from '@/components/form/Input';
+import { getBEBaseUrl } from '@/lib/common/baseUrl';
 
 // * Props
 interface IProps {
@@ -33,7 +34,7 @@ export default function ChatForm({ addMessages, loading, setLoading }: IProps) {
     // 7. Send Request to OpenAI
     try {
       // Hit API Endpoint to create chat completion request
-      const res = await fetch(baseUrl + `/api/v1/chat`, {
+      const res = await fetch(getBEBaseUrl() + `/api/v1/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

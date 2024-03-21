@@ -1,4 +1,4 @@
-import baseUrl from '@/lib/common/baseUrl';
+import { getFEBaseUrl } from '@/lib/common/baseUrl';
 import { Metadata } from 'next';
 
 const title = 'Momentum 30 | Exercise Made Easy';
@@ -30,7 +30,7 @@ export const defaultMetadata: Metadata = {
   colorScheme: 'only light',
   themeColor: '#06b6d4',
   assets: '/static',
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(getFEBaseUrl()),
   alternates: {
     canonical: '/',
     languages: {
@@ -43,13 +43,13 @@ export const defaultMetadata: Metadata = {
     // Basic keywords
     // Long-tail keywords
   ],
-  bookmarks: [baseUrl + '/'],
+  bookmarks: [getFEBaseUrl() + '/'],
   openGraph: {
     type: 'website',
     siteName: 'TSK',
     title,
     description,
-    url: baseUrl,
+    url: getFEBaseUrl(),
     images,
     locale: 'en_US',
     countryName: 'United States',
@@ -59,7 +59,7 @@ export const defaultMetadata: Metadata = {
   icons: {
     icon: [
       { url: '/static/favicon/maskable_icon.png' },
-      new URL('/static/favicon/maskable_icon.png', baseUrl).toString(),
+      new URL('/static/favicon/maskable_icon.png', getFEBaseUrl()).toString(),
     ],
     apple: '/apple-icon.png',
     other: {
