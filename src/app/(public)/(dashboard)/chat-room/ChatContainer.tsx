@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import ChatForm from './ChatForm';
 import ChatMessages from './ChatMessages';
+import { getBEBaseUrl } from '@/lib/common/baseUrl';
 
 // * Page: ChatContainer
 export default function ChatContainer() {
@@ -23,7 +24,7 @@ export default function ChatContainer() {
     // 2. Send Request to OpenAI
     try {
       // Hit API Endpoint to get chat history
-      const res = await fetch('http://localhost:5000' + '/api/v1/chat', {
+      const res = await fetch(getBEBaseUrl() + '/api/v1/chat', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

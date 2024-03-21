@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '@/components/ui/Button';
+import { getBEBaseUrl } from '@/lib/common/baseUrl';
 import { useEffect, useState } from 'react';
 
 // * Page: DashboardHomePage
@@ -10,9 +11,7 @@ export default function TodaysWorkoutHome() {
   const getTodaysExercises = async () => {
     // * Fetch todays exercises
     try {
-      const res = await fetch(
-        'http://localhost:5000' + '/api/v1/workout/current',
-      );
+      const res = await fetch(getBEBaseUrl() + '/api/v1/workout/current');
       const data = await res.json();
 
       console.log('data.data.workoutList:', data.data.workoutList);
